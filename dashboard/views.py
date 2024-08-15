@@ -4,6 +4,8 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, "dashboard_template/index.html")
+def projectPage(request):
+    return render(request, "dashboard_template/project.html")
 
 
 def transportPage(request):
