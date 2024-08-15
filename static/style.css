@@ -1,0 +1,29 @@
+.department--card {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.dp-card1:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    box-shadow: 5px 8px 5px rgb(181, 177, 174, 0.3);
+}
+
+.dp-card2:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    box-shadow: 5px 8px 5px rgb(181, 177, 174, 0.3);
+}
+
+.dp-card3:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    box-shadow: 5px 8px 5px rgb(181, 177, 174, 0.3);
+}
+
+.dp-card4:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    box-shadow: 5px 8px 5px rgb(181, 177, 174, 0.3);
+}
