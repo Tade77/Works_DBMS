@@ -9,7 +9,7 @@ def projectPage(request):
 
 
 def transportPage(request):
-    return render(request, "dashboard_template/transport.html")
+    return render(request, "dashboard_template/civil.html")
 
 def mechanicalPage(request):
     return render(request, "dashboard_template/mechanical.html")

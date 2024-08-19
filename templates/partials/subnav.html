@@ -1,68 +1,80 @@
 {% block content %}
+<!--Topside-->
 <div class="container">
-  <marquee behavior="" direction="">
-    <div class="card">
-      <div class="card-body p-5">
-        <h3 class="text-bg-primary">
-          Welcome to Estate and Works department FCET, Omoku
-        </h3>
-        <p class="">We build and maintain the college....</p>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header bg-info text-white">Information</div>
+        <div class="card-body">
+          <marquee behavior="" direction="">
+            <h3 class="my-4">Welcome to Estate and works Database</h3>
+          </marquee>
+        </div>
       </div>
     </div>
-  </marquee>
-  <div class="department--card">
-    <div class="dp-card1 card g-col-4" style="width: 18rem">
-      <img src="" alt="My Image" />
-      <div class="card-body">
-        <h5 class="card-title">Project</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="{% url 'dashboard-project' %}" class="btn btn-primary"
-          >Explore</a
-        >
-      </div>
-    </div>
-    <div class="dp-card2 card g-col-4" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Civil</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="{% url 'dashboard-transport' %}" class="btn btn-primary"
-          >contact us</a
-        >
-      </div>
-    </div>
-    <div class="dp-card3 card g-col-4" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Mechanical</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="{% url 'dashboard-mechanical' %}" class="btn btn-primary"
-          >Contact us</a
-        >
-      </div>
-    </div>
-    <div class="dp-card4 card g-col-4" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Electrical</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="{% url 'dashboard-electrical' %}" class="btn btn-primary"
-          >Contact usl</a
-        >
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-info text-white">Departments</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <a class="text-decoration-none text-dark" href="staff.html">
+                <div class="card my-card shadow text-center p-3">
+                  <h4>Civil<i class="fas fa-users"></i></h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Animi nemo quo doloribus labore odio ratione totam nisi
+                    necessitatibus voluptates esse iure, libero, error
+                    consequatur accusamus voluptatibus corrupti. Tempore,
+                    voluptas cumque.
+                  </p>
+                  <a href="{% url 'dashboard-civil' %}" class="btn btn-primary"
+                    >Contact us</a
+                  >
+                </div>
+              </a>
+            </div>
+            <div class="col-md-4">
+              <a class="text-decoration-none text-dark" href="product.html">
+                <div class="card my-card shadow text-center p-3">
+                  <h4>Mechanical <i class="fas fa-box"></i></h4>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Numquam cum molestiae quas adipisci consequatur, praesentium
+                    rerum placeat laborum molestias, aliquid, repellat explicabo
+                    earum blanditiis saepe. Animi illo facere ut sed?
+                  </p>
+                  <a
+                    href="{% url 'dashboard-mechanical' %}"
+                    class="btn btn-primary"
+                    >Contact us</a
+                  >
+                </div>
+              </a>
+            </div>
+            <div class="col-md-4">
+              <a class="text-decoration-none text-dark" href="order.html">
+                <div class="card my-card shadow text-center p-3">
+                  <h4>Electrical <i class="fas fa-shipping-fast"></i></h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quas odio rem id, vel sequi accusantium sunt? Commodi,
+                    dignissimos, officiis et, veritatis velit repellat error
+                    explicabo quas similique a suscipit asperiores.
+                  </p>
+                  <a
+                    href="{% url 'dashboard-electrical' %}"
+                    class="btn btn-primary"
+                    >Contact us</a
+                  >
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<!--End Topside-->
 {% endblock %}
