@@ -1,0 +1,17 @@
+{% extends 'partials/navitems.html' %} {% block title %}Login Page{% endblock %}
+{% load crispy_forms_tags %} {% block content %}
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-3">
+      <div class="border bg-white p-3">
+        <h3>Login Page</h3>
+        <br />
+        <form method="post">
+          {% csrf_token %}{{form | crispy}}
+          <input type="submit" value="Login" class="btn btn-success" />
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>

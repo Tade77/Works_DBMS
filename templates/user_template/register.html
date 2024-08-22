@@ -1,12 +1,12 @@
-{% include "partials/nav.html" %} {% block title %}Register Page{% endblock %}
-{% block content %}
+{% include "partials/navitems.html" %}{% block title %}Register Page{%endblock%}
+{% load crispy_forms_tags %} {% block content %}
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-6 offset-md-3">
       <div class="border bg-white p-3">
         <h3>Registration Page</h3>
         <hr />
-        <form method="post">
+        <form method="POST">
           {% csrf_token %} {{ form|crispy }}
           <input class="btn btn-success" type="submit" value="Register" />
         </form>
@@ -14,4 +14,4 @@
     </div>
   </div>
 </div>
-{% endblock %}
+{%endblock%}
