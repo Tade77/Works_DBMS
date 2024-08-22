@@ -1,12 +1,12 @@
-{% extends 'partials/navitems.html' %} {% block title %} Logout Page {%
-endblock%} {% load crispy_forms_tags %}{% block content %}
+{% extends 'partials/navitems.html' %}{% block title %}Logout Page{% endblock%}
+{% load crispy_forms_tags %} {% block content %}
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-6 offset-md-3">
       <div class="border bg-white p-3">
         <h3>Logout Page</h3>
         <br />
-        <form action="" method="post">
+        <form action="{% url 'user-logout' %}" method="post">
           <div class="alert alert-danger">
             {% csrf_token %}
             <h3>You are logged out</h3>
@@ -17,5 +17,4 @@ endblock%} {% load crispy_forms_tags %}{% block content %}
     </div>
   </div>
 </div>
-
 {% endblock %}
