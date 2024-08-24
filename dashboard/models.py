@@ -43,15 +43,15 @@ class Login(models.Model):
     username = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=100, unique=True)
     
-class Register(models.Model):
-    name = models.CharField(max_length=150, unique=True)
-    username = models.CharField(max_length=100, unique=True)
-    school = models.CharField(max_length=200, unique=True, choices=SCHOOLS)
-    campus = models.CharField(max_length=20,unique=True, choices=CAMPUSES)
-    department = models.CharField(max_length=100, unique=True, choices=DEPARTMENTS)
-    email= models.EmailField(("email"), max_length=200, unique=True)
-    password = models.CharField(max_length=100, unique=True)
-    confirm_password = models.CharField(max_length=100, unique=True)
+# class Register(models.Model):
+#     name = models.CharField(max_length=150, unique=True)
+#     username = models.CharField(max_length=100, unique=True)
+#     school = models.CharField(max_length=200, unique=True, choices=SCHOOLS)
+#     campus = models.CharField(max_length=20,unique=True, choices=CAMPUSES)
+#     department = models.CharField(max_length=100, unique=True, choices=DEPARTMENTS)
+#     email= models.EmailField(("email"), max_length=200, unique=True)
+#     password = models.CharField(max_length=100, unique=True)
+#     confirm_password = models.CharField(max_length=100, unique=True)
     
 class Issue(models.Model):
         name = models.CharField(max_length=100, unique=True)

@@ -1,6 +1,12 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-info bg-info">
   <div class="container">
-    {% if user.is_authenticated %}
+    <img
+      src="{% static 'image/helmet5.jpeg' %}"
+      alt=""
+      class="navbar-brand"
+      style="height: 60px; width: 60px; border-radius: 50%"
+    />
     <a class="navbar-brand text-white" href="{% url 'dashboard-index' %}"
       >Estate & Works</a
     >
@@ -15,6 +21,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    {% if user.is_authenticated %}
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -27,7 +34,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
           <a class="nav-link text-white" href="#">
-            {{user.username}}Profile <span class="sr-only">(current)</span></a
+            {{user.username}} Profile <span class="sr-only">(current)</span></a
           >
         </li>
         <li class="nav-item">

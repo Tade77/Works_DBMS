@@ -131,4 +131,7 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = (BASE_DIR/ 'asset')
 
+MEDIA_ROOT = (BASE_DIR/ 'media')
+MEDIA_URL = '/media/'
+
 LOGIN_REDIRECT_URL = 'dashboard-index'

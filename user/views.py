@@ -13,3 +13,7 @@ def  register(request):
         form = createUserForm()
     context = {'form': form,}
     return render(request, 'user_template/register.html', context)
+
+
+def userProfile(request):
+    return render(request, 'user_template/profile.html')
