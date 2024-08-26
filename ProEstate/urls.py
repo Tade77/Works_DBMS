@@ -27,9 +27,11 @@ urlpatterns = [
     path('', include('dashboard.urls')),
     path('register/', user_view.register, name='user-register'),
     path('profile/', user_view.userProfile, name='user-profile'),
-
     path('', auth_view.LoginView.as_view(template_name='user_template/login.html'), name='user-login'),
     path('logout/', auth_view.LogoutView.as_view(template_name='user_template/logout.html'), name='user-logout')
 
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
