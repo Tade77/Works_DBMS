@@ -43,19 +43,17 @@ class Login(models.Model):
     username = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=100, unique=True)
     
-# class Register(models.Model):
-#     name = models.CharField(max_length=150, unique=True)
-#     username = models.CharField(max_length=100, unique=True)
-#     school = models.CharField(max_length=200, unique=True, choices=SCHOOLS)
-#     campus = models.CharField(max_length=20,unique=True, choices=CAMPUSES)
-#     department = models.CharField(max_length=100, unique=True, choices=DEPARTMENTS)
-#     email= models.EmailField(("email"), max_length=200, unique=True)
-#     password = models.CharField(max_length=100, unique=True)
-#     confirm_password = models.CharField(max_length=100, unique=True)
+CAMPUSES = [
+    ('C1' , 'campus1'),
+    ('C2' , 'campus2'),
+]
     
 class Issue(models.Model):
-        name = models.CharField(max_length=100, unique=True)
+        staff = models.CharField(max_length=100, null=True)
         department = models.CharField(max_length=100)
-        fault_detection = models.TextField(max_length=500,unique=True)
+        campus = models.CharField(max_length=10, choices=CAMPUSES, null=True)
+        fault_detection = models.TextField(max_length=500,null=True)
         date_reported = models.DateTimeField(auto_now_add=True)
+        
+    
 

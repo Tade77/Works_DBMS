@@ -9,5 +9,7 @@ class Profile(models.Model):
     campus = models.CharField(max_length=10, null=True)
     image = models.ImageField(default='avatar.jpg', upload_to='profile_images')
     
+    
+    
     def __str__(self):
         return f'{self.staff.username} - profile'

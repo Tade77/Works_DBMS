@@ -1,1 +1,19 @@
-{% include "partials/navitems.html" %}
+{% include "partials/navitems.html" %} {% block title %} Project Page
+{%endblock%}
+<div class="container">
+  <a href="{% url 'dashboard-index' %}" class="btn btn-primary"
+    >Back to Home Page</a
+  >
+  <h1>Our Project Overview so far</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe facere labore
+    ullam, maiores tenetur molestiae accusantium magni quia nihil porro harum
+    obcaecati quis vitae omnis quisquam consequuntur laboriosam libero
+    voluptate!
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum ipsam
+    voluptatum cum optio architecto ullam repellat maiores minus, ratione sit
+    fugit error quisquam mollitia iste molestias aliquid incidunt harum eaque!
+  </p>
+</div>

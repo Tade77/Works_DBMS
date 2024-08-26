@@ -1,13 +1,10 @@
 from django.contrib import admin
-from . models import Login, Issue
+from . models import Issue
 
 # Register your models here.
-class LoginAdmin(admin.ModelAdmin):
-    list_display = ['username']
-
 class IssueAdmin(admin.ModelAdmin):
-    list_display = ['name', 'department', 'fault_detection', 'date_reported']
-    
-    
-    admin.site.register(Login, LoginAdmin)
-    admin.site.register(Issue)
+    list_display=['staff', 'department', 'campus', 'fault_detection', 'date_reported']
+
+
+admin.site.site_header = 'Estate and Works Admin'
+admin.site.register(Issue, IssueAdmin)

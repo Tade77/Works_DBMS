@@ -37,52 +37,27 @@
       </div>
       <!--staff profile end-->
     </div>
-    <div class="col-md-8 mb-5">
+    <div class="col-md-6 mb-5 offset-3">
       <div class="card">
         <div class="card-header bg-info text-white">Departments</div>
         <div class="card-body">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col">
               <a class="text-decoration-none text-dark" href="staff.html">
                 <div class="card my-card shadow text-center p-3">
-                  <h4>Civil<i class="fas fa-users"></i></h4>
+                  <h4>
+                    TECHNICAL TEAMS AT ESTATE AND WORKS<i
+                      class="fas fa-users"
+                    ></i>
+                  </h4>
                   <p>
                     Do you have issues with your buildings, physical structures
-                    and facilities?
-                  </p>
-                  <a href="{% url 'dashboard-civil' %}" class="btn btn-primary"
-                    >Contact us</a
-                  >
-                </div>
-              </a>
-            </div>
-            <div class="col-md-4">
-              <a class="text-decoration-none text-dark" href="product.html">
-                <div class="card my-card shadow text-center p-3">
-                  <h4>Mechanical <i class="fas fa-box"></i></h4>
-                  <p>
-                    Which of the issues are you having with your power
-                    generators, pipes and fittings? We are here to serve.
-                  </p>
-                  <a
-                    href="{% url 'dashboard-mechanical' %}"
-                    class="btn btn-primary"
-                    >Contact us</a
-                  >
-                </div>
-              </a>
-            </div>
-            <div class="col-md-4">
-              <a class="text-decoration-none text-dark" href="order.html">
-                <div class="card my-card shadow text-center p-3">
-                  <h4>Electrical <i class="fas fa-shipping-fast"></i></h4>
-                  <p>
+                    and facilities? Which of the issues are you having with your
+                    power generators, pipes and fittings? We are here to serve.
                     Which of the electrical issues are you having, light-out,
                     low voltage,circuit problems?
                   </p>
-                  <a
-                    href="{% url 'dashboard-electrical' %}"
-                    class="btn btn-primary"
+                  <a href="{% url 'dashboard-issue' %}" class="btn btn-primary"
                     >Contact us</a
                   >
                 </div>
