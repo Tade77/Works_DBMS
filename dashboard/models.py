@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 
@@ -52,8 +53,8 @@ class Issue(models.Model):
         staff = models.CharField(max_length=100, null=True)
         department = models.CharField(max_length=100)
         campus = models.CharField(max_length=10, choices=CAMPUSES, null=True)
-        fault_detection = models.TextField(max_length=500,null=True)
-        date_reported = models.DateTimeField(auto_now_add=True)
+        fault_detection = models.TextField(max_length=450,null=True)
+        date_reported = models.DateTimeField(auto_now_add=True, editable=False)
         
     
 

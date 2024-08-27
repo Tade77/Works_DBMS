@@ -1,20 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-# from django.http import HttpResponse 
-# Create your views here.
+from . forms import IssueForm
+from . models import Issue
+
+
+
+
+
+
 @login_required(login_url='user-login')
 def index(request):
     return render(request, "dashboard_template/index.html")
 @login_required(login_url='user-login')
 def issuePage(request):
-    return render(request, "dashboard_template/issue.html")
-
-# @login_required(login_url='user-login')
-# def transportPage(request):
-#     return render(request, "dashboard_template/civil.html")
-# @login_required(login_url='user-login')
-# def mechanicalPage(request):
-#     return render(request, "dashboard_template/mechanical.html")
-# @login_required(login_url='user-login')
-# def electricalPage(request):
-#     return render(request, "dashboard_template/electrical.html")
+    items = Issue.objects.all() #object relational model
+    # items  = Product.objects.raw('SELECT * FROM dashboard_product')
+    if request.method == 'POST':
+        form = IssueForm(request.POST)
+        if form.is_valid:
+            form.save()
+            return redirect('dashboard-index')
+    else:
+        form = IssueForm() 
+    context = {
+        'items': items,
+        'form': form,
+    }
+    return render(request, "dashboard_template/issue.html", context)
