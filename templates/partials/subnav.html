@@ -1,7 +1,7 @@
 {% block content %}
 <!--Topside-->
 {% if user.is_authenticated %}
-{% comment %} {% load crispy_forms_tags %}  {% endcomment %}
+{% load crispy_forms_tags %} 
 <div class="container">
   <div class="row mt-4">
     <div class="col-md-4">
@@ -75,15 +75,9 @@
               <th>Report Feedback</th>
               </tr>
               </thead>
-              <tbody>
-                {% for item in items %}
-                <tr>
-                  <td>{{ item.staff_name }}</td>
-                  <td>{{ item.status}}</td>
-                  <td>{{ item.feedback }}</td>
-
+              
          </table>
-        {% endfor %}   
+        
         </div>
       </div>
     </div>
