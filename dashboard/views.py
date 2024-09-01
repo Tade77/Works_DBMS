@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from . forms import IssueForm
-from . models import Issue
+from . forms import IssueForm, UserFeedBackForm
+from . models import Issue, UserFeedback
 
 
 
@@ -27,3 +27,22 @@ def issuePage(request):
         'form': form,
     }
     return render(request, "dashboard_template/issue.html", context)
+
+
+def issueFeedback(request):
+    items = UserFeedback.objects.all()
+    if request.method == 'POST':
+        form = UserFeedBackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard-index')
+    else:
+        form = UserFeedBackForm()
+    context = {
+        'items': items,
+        'form': form,
+
+        }
+    
+        
+    return render(request, "dashboard_template/feedback.html", context)
