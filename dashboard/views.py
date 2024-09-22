@@ -10,7 +10,12 @@ from . models import Issue, UserFeedback
 
 @login_required(login_url='user-login')
 def index(request):
-    return render(request, "dashboard_template/index.html")
+    reports = Issue.objects.all()
+    context = {
+        'reports': reports
+    }
+    
+    return render(request, "dashboard_template/index.html", context)
 @login_required(login_url='user-login')
 def issuePage(request):
     items = Issue.objects.all() #object relational model
@@ -30,7 +35,7 @@ def issuePage(request):
 
 
 def issueFeedback(request):
-    items = UserFeedback.objects.all()
+    report = UserFeedback.objects.all()
     if request.method == 'POST':
         form = UserFeedBackForm(request.POST)
         if form.is_valid():
@@ -39,7 +44,7 @@ def issueFeedback(request):
     else:
         form = UserFeedBackForm()
     context = {
-        'items': items,
+        'report': report,
         'form': form,
 
         }

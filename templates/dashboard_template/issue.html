@@ -1,19 +1,51 @@
-{% include "partials/navitems.html" %} {% block title %} Issues197 {% endblock %}
+{% include "partials/navitems.html" %} {% block title %} Issues {% endblock %}
 {% load crispy_forms_tags %} {% block content %}
 <div class="container">
   <div class="row mt-5">
-    <div class="col-md-6 offset-md-3">
-      <div class="border bg-white p-3">
+    <div class="col-md-4">
+      <div class="border p-3 text-white bg-info">
         <h3>Report Your Issues</h3>
-        <hr />
-        <form method="post">
-          {% csrf_token %} {{ form|crispy }}
-          <input
-            type="submit"
-            value="Submit your complain"
-            class="btn btn-success"
-          />
-        </form>
+      </div>
+      <hr />
+      <form method="post">
+        {% csrf_token %} {{ form|crispy }}
+        <input
+          type="submit"
+          value="Submit your complain"
+          class="btn btn-success"
+        />
+      </form>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-info text-white">
+          <h3>Issues Reported</h3>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="row">Staff</th>
+                <th scope="row">Department</th>
+                <th scope="row">Campus</th>
+                <th scope="row">Fault</th>
+                <th scope="row">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in items %} {% if item.staff == user %}
+              <tr>
+                <td>{{item.staff}}</td>
+                <td>{{item.department}}</td>
+                <td>{{item.campus}}</td>
+                <td>{{item.fault_detection}}</td>
+                <td>{{item.date_reported}}</td>
+              </tr>
+              {% endif %} {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

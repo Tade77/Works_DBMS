@@ -1,12 +1,13 @@
 {% block content %}
 <!--Topside-->
-{% if user.is_authenticated %}
-{% load crispy_forms_tags %} 
+{% load crispy_forms_tags %}
 <div class="container">
   <div class="row mt-4">
     <div class="col-md-4">
       <div class="card">
-        <div class="card-header bg-info text-white">Information</div>
+        <div class="card-header bg-info text-white">
+          <h3>Information</h3>
+        </div>
         <div class="card-body">
           <marquee behavior="" direction="">
             <h3 class="my-2">
@@ -24,7 +25,9 @@
     <!--staff profile-->
     <div class="col-md-6 mb-5 offset-2">
       <div class="card">
-        <div class="card-header bg-info text-white">Staff Profile</div>
+        <div class="card-header bg-info text-white">
+          <h3>Staff Profile</h3>
+        </div>
         <div class="card-body">
           <div class="card my-card shadow text-left p-3">
             <h2>
@@ -38,53 +41,44 @@
       </div>
       <!--staff profile end-->
     </div>
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header bg-info text-white">Departments</div>
-          <div class="card-body">
-            <div class="col">
-              <div class="card my-card shadow text-center p-3">
-              <h4>TECHNICAL TEAMS AT ESTATE AND WORKS<i class="fasfa-users"></i></h4>
-                    <p>
-                      Do you have issues with your buildings, physical
-                      structures and facilities? Which of the issues are you
-                      having with your power generators, pipes and fittings? We
-                      are here to serve. Which of the electrical issues are you
-                      having, light-out, low voltage,circuit problems?
-                    </p>
-                    <a
-                      href="{% url 'dashboard-issue' %}"
-                      class="btn btn-primary"
-                      >Contact us</a
-                    >
-                  </div>
-              </div>
-          </div>
-        </div>
-      </div>
-      <!--Staff Previous Report-->
-    <div class="col-md-6">
+
+    {% if user.is_authenticated and user.is_staff and user.is_superuser %}
+    <!--Staff Previous Report-->
+    <div class="row p-3 offset-1">
       <div class="card">
-        <div class="card-header bg-info text-white">Feedback</div>
-        <div class="card-body d-flex flex-column">
-         <table>
-          <thead>
-            <tr>
-              <th>Reported By</th>
-              <th>Status</th>
-              <th>Report Feedback</th>
+        <div class="card-header bg-info text-white">
+          <h3>Issues Reported</h3>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="row">Staff</th>
+                <th scope="row">Department</th>
+                <th scope="row">Campus</th>
+                <th scope="row">Fault</th>
+                <th scope="row">Date</th>
               </tr>
-              </thead>
-              
-         </table>
-        
+            </thead>
+            <tbody>
+              {% for report in reports %}
+              <tr>
+                <td>{{report.staff}}</td>
+                <td>{{report.department}}</td>
+                <td>{{report.campus}}</td>
+                <td>{{report.fault_detection}}</td>
+                <td>{{report.date_reported}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-      <!--Staff Previous Report end-->
-    </div>
+    {% else %} {% include 'dashboard_template/civil.html' %}
+
+    <!--End Topside-->
   </div>
   {% endif %}
-  <!--End Topside-->
-  {% endblock %}
 </div>
+{% endblock %}

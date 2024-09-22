@@ -21,9 +21,9 @@ CAMPUSES = [
     ('C2', 'Campus 2'),
 ]
 STATUS = [
-    ('UA', 'Unattended'),
-    ('PD', 'Pending'),
-    ('RD', 'Rectified'),
+    ('Unattended', 'Unattended'),
+    ('Pending', 'Pending'),
+    ('Rectified', 'Rectified'),
 ]
 
 
@@ -33,15 +33,15 @@ class Login(models.Model):
     password = models.CharField(max_length=100, unique=True)
     
 CAMPUSES = [
-    ('C1' , 'campus1'),
-    ('C2' , 'campus2'),
+    ('campus1' , 'campus1'),
+    ('campus2' , 'campus2'),
 ]
     
 class Issue(models.Model):
         staff = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
         department = models.CharField(max_length=100)
         campus = models.CharField(max_length=10, choices=CAMPUSES, null=True)
-        fault_detection = models.TextField(max_length=450,null=True)
+        fault_detection = models.CharField(max_length=100,null=True)
         date_reported = models.DateTimeField(auto_now_add=True, editable=False)
         
         
@@ -49,7 +49,7 @@ class UserFeedback(models.Model):
     staff_name = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     fault_location = models.CharField(max_length=50, null=True)
     status = models.CharField(max_length=10, choices=STATUS, null=True)
-    feedback = models.TextField(max_length=200, null=True)
+    feedback = models.CharField(max_length=100, null=True)
         
     
 

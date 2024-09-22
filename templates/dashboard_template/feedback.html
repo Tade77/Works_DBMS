@@ -1,15 +1,52 @@
 {% include "partials/navitems.html" %} {% block title %} Issues {% endblock %}
 {% load crispy_forms_tags %} {% block content %}
-<div class="col-md-6 offset-md-3">
-  <div class="card">
-    <div class="card-header bg-info text-white">Feedback</div>
-    <div class="card-body d-flex flex-column">
-      <hr />
-      <form method="post">
-        {% csrf_token %} {{form|crispy}}
-        <input type="submit" value="submbit feedback" class="btn btn-success" />
-      </form>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header bg-info text-white"><h4>Feedback</h4></div>
+        <div class="card-body">
+          <hr />
+          <form method="post">
+            {% csrf_token %} {{form|crispy}}
+            <input
+              type="submit"
+              value="submbit feedback"
+              class="btn btn-success"
+            />
+          </form>
+        </div>
+      </div>
     </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-info text-white">
+          <h4>Staff feedback views</h4>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="row">Location</th>
+                <th scope="row">Status</th>
+                <th scope="row">Feeback</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              {% for report in report %}
+              {% if report.staff_name == user %}
+              <tr>
+                <td>{{report.fault_location}}</td>
+                <td>{{report.status}}</td>
+                <td>{{report.feedback}}</td>
+              </tr>
+              {% endif %}
+              {% endfor %}
+            </tbody>
+        </div>
+      </div>
     </div>
   </div>
 </div>
